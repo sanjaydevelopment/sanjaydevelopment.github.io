@@ -1,220 +1,229 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sanjay Sreenivas - Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
-    <style>
-        /* Basic reset & font */
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        body {
-            font-family: 'Roboto Mono', monospace;
-            color: #fff;
-            background: #1c1c1c;
-            overflow-x: hidden;
-        }
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sanjay Sreenivas - Portfolio</title>
+<link href="https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap" rel="stylesheet">
+<style>
+    * { margin:0; padding:0; box-sizing:border-box; }
+    body {
+        font-family: 'Roboto Mono', monospace;
+        color: #fff;
+        background: #0d1117;
+        overflow-x: hidden;
+        position: relative;
+    }
 
-        /* Particle Background */
-        body::before {
-            content: "";
-            position: fixed;
-            top:0; left:0;
-            width:100%; height:100%;
-            background: radial-gradient(#3498db 1px, transparent 1px);
-            background-size: 20px 20px;
-            z-index:-2;
-            animation: moveBg 60s linear infinite;
-        }
-        @keyframes moveBg {
-            0% { background-position: 0 0; }
-            100% { background-position: 1000px 1000px; }
-        }
+    canvas { position: fixed; top:0; left:0; width:100%; height:100%; z-index:-3; }
 
-        /* Profile */
-        .profile-photo {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            border: 4px solid #3498db;
-            object-fit: cover;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-        .profile-photo:hover {
-            transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(52,152,219,0.5);
-        }
+    .container {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 20px;
+        text-align: center;
+        position: relative;
+        z-index: 2;
+    }
 
-        h1 {
-            margin-top: 20px;
-            font-size: 40px;
-            color: #3498db;
-            text-shadow: 0 0 5px #3498db;
-        }
+    .profile-photo {
+        width:150px; height:150px;
+        border-radius:50%; border:4px solid #3498db;
+        object-fit: cover;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .profile-photo:hover {
+        transform: scale(1.1);
+        box-shadow:0 0 20px rgba(52,152,219,0.6);
+    }
 
-        /* Typing effect */
-        .typing {
-            font-size: 20px;
-            color: #ecf0f1;
-            margin-top: 10px;
-            height: 24px;
-            overflow: hidden;
-            border-right: .15em solid #3498db;
-            white-space: nowrap;
-            animation: typing 6s steps(40, end) infinite, blink-caret .75s step-end infinite;
-        }
-        @keyframes typing { 0%,20%{width:0} 40%,60%{width:100%} 80%,100%{width:0} }
-        @keyframes blink-caret { 0%,100%{border-color:transparent} 50%{border-color:#3498db} }
+    h1 { margin-top:20px; font-size:40px; color:#3498db; text-shadow:0 0 5px #3498db; }
 
-        /* Tagline */
-        .tagline {
-            font-size: 18px;
-            margin-bottom: 40px;
-            color: #bdc3c7;
-        }
+    .typing {
+        font-size:20px; color:#ecf0f1; margin-top:10px; height:24px;
+        overflow:hidden; border-right:.15em solid #3498db; white-space: nowrap;
+        animation: typing 6s steps(40,end) infinite, blink-caret .75s step-end infinite;
+    }
+    @keyframes typing { 0%,20%{width:0} 40%,60%{width:100%} 80%,100%{width:0} }
+    @keyframes blink-caret { 0%,100%{border-color:transparent} 50%{border-color:#3498db} }
 
-        /* Sections */
-        section {
-            margin: 40px 0;
-            padding: 30px;
-            background: linear-gradient(145deg, #2c3e50, #34495e);
-            border-radius: 12px;
-            box-shadow: 0 8px 20px rgba(0,0,0,0.5);
-            text-align: left;
-        }
-        section h2 {
-            text-align: center;
-            font-size: 28px;
-            color: #3498db;
-            margin-bottom: 20px;
-            text-shadow: 0 0 5px #3498db;
-        }
+    .tagline { font-size:18px; margin-bottom:40px; color:#bdc3c7; }
 
-        /* Lists */
-        ul {
-            list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            padding: 0;
-            justify-content: center;
-        }
-        li {
-            background: #3d566e;
-            padding: 15px;
-            border-left: 4px solid #3498db;
-            transition: all 0.4s ease;
-            text-align: center;
-            cursor: pointer;
-            border-radius: 6px;
-        }
-        li:hover {
-            background: linear-gradient(135deg, #3498db, #5dade2);
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 8px 20px rgba(52,152,219,0.4);
-            color: #fff;
-        }
+    section {
+        margin:40px 0; padding:30px;
+        background: linear-gradient(145deg,#1b2631,#2c3e50);
+        border-radius:12px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+        text-align:left; opacity:0; transform:translateY(50px);
+        transition: all 0.8s ease-out;
+    }
+    section.active { opacity:1; transform:translateY(0); }
 
-        /* Footer */
-        footer {
-            text-align: center;
-            margin-top: 60px;
-            padding: 30px;
-            background: #2c3e50;
-            border-top: 1px solid #34495e;
-            font-size: 16px;
-        }
-        .footer-link {
-            color: #3498db;
-            font-weight: bold;
-            text-decoration: none;
-            margin: 0 10px;
-            transition: color 0.3s ease, transform 0.3s ease;
-        }
-        .footer-link:hover {
-            color: #5dade2;
-            transform: translateY(-3px);
-        }
+    section h2 {
+        text-align:center; font-size:28px; color:#3498db; margin-bottom:20px;
+        text-shadow:0 0 5px #3498db;
+    }
 
-        /* Responsive */
-        @media (max-width: 768px){
-            h1{font-size:32px}
-            .tagline{font-size:16px}
-            section h2{font-size:24px}
-            li{padding:10px}
-        }
+    ul { list-style:none; display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; padding:0; justify-content:center; }
+    li {
+        background:#3d566e; padding:15px; border-left:4px solid #3498db;
+        transition: all 0.4s ease; text-align:center; cursor:pointer; border-radius:6px;
+    }
+    li:hover {
+        background: linear-gradient(135deg,#3498db,#5dade2);
+        transform: translateY(-5px) scale(1.05);
+        box-shadow: 0 8px 20px rgba(52,152,219,0.4);
+        color:#fff;
+    }
 
-    </style>
+    footer { text-align:center; margin-top:60px; padding:30px; background:#1b2631; border-top:1px solid #2c3e50; font-size:16px; }
+    .footer-link { color:#3498db; font-weight:bold; text-decoration:none; margin:0 10px; transition: color 0.3s ease, transform 0.3s ease; }
+    .footer-link:hover { color:#5dade2; transform: translateY(-3px); }
+
+    @media(max-width:768px){ h1{font-size:32px} .tagline{font-size:16px} section h2{font-size:24px} li{padding:10px} }
+</style>
 </head>
 <body>
-    <div class="container">
-        <div class="profile-container">
-            <img src="profile.jpg" alt="Sanjay Sreenivas" class="profile-photo" 
-                 onerror="this.src='https://via.placeholder.com/150x150/2c3e50/3498db?text=S'; this.onerror=null;">
-        </div>
 
-        <h1>Hello, I'm Sanjay Sreenivas</h1>
-        <p class="typing">Data Engineer | AI & ML | Cloud | Data Governance</p>
-        <p class="tagline">Building scalable, secure, and intelligent data solutions</p>
+<canvas id="particle-canvas"></canvas>
 
-        <section class="about">
-            <h2>👨‍💻 About Me</h2>
-            <p>
-                Passionate Data Engineer with expertise in AI, Machine Learning, Big Data, and Cloud Platforms.
-                I specialize in building end-to-end data pipelines, ensuring data quality, governance, and privacy compliance.
-                I thrive on transforming raw data into actionable insights and creating intelligent systems
-                that bridge business objectives and technology innovation.
-            </p>
-        </section>
-
-        <section class="skills">
-            <h2>⚙️ Skills</h2>
-            <ul>
-                <li>Python & PySpark</li>
-                <li>Snowflake, SQL, MongoDB</li>
-                <li>Data Engineering & Pipelines</li>
-                <li>Machine Learning & AI Automation</li>
-                <li>Streamlit, Flask, REST API Development</li>
-                <li>Cloud Platforms (AWS, Azure)</li>
-            </ul>
-        </section>
-
-        <section class="certifications">
-            <h2>🏆 Certifications</h2>
-            <ul>
-                <li>AI Agents Fundamentals</li>
-                <li>AWS Certified Cloud Practitioner</li>
-                <li>BigID Master Security BizUser</li>
-                <li>Salesforce Platform Developer</li>
-                <li>Collibra Solution Architect Certification</li>
-                <li>Alteryx Foundational Micro-Credential</li>
-            </ul>
-        </section>
-
-        <section class="projects">
-            <h2>🚀 Featured Work / Projects</h2>
-            <ul>
-                <li>🔹 AI-driven Data Profiling, Classification & Quality Assessment</li>
-                <li>🔹 Local LLM-powered Data Insights & Analytics</li>
-                <li>🔹 NLP-based Analysis for Structured & Unstructured Data</li>
-                <li>🔹 End-to-End Real-Time Data Pipeline with Airflow & S3</li>
-                <li>🔹 Streamlit Apps for Data Analytics & Visualization</li>
-                <li>🔹 MongoDB + Python Automation for Data Validation</li>
-            </ul>
-        </section>
-
-        <footer>
-            <p>Connect with me:</p>
-            <a href="https://www.linkedin.com/in/sanjay-sreenivas/" target="_blank" class="footer-link">LinkedIn</a>
-            <a href="mailto:sanjaysreenivas7@gmail.com" class="footer-link">Email</a>
-            <a href="https://github.com/sanjaydevelopment" target="_blank" class="footer-link">GitHub</a>
-        </footer>
+<div class="container">
+    <div class="profile-container">
+        <img src="profile.jpg" alt="Sanjay Sreenivas" class="profile-photo" onerror="this.src='https://via.placeholder.com/150x150/0d1117/3498db?text=S'; this.onerror=null;">
     </div>
+    <h1>Hello, I'm Sanjay Sreenivas</h1>
+    <p class="typing">Data Engineer | AI & ML | Cloud | Data Governance</p>
+    <p class="tagline">Building scalable, secure, and intelligent data solutions</p>
+
+    <section class="about">
+        <h2>👨‍💻 About Me</h2>
+        <p>Passionate Data Engineer with expertise in AI, Machine Learning, Big Data, and Cloud Platforms. I specialize in building end-to-end data pipelines, ensuring data quality, governance, and privacy compliance. I thrive on transforming raw data into actionable insights and creating intelligent systems that bridge business objectives and technology innovation.</p>
+    </section>
+
+    <section class="skills">
+        <h2>⚙️ Skills</h2>
+        <ul>
+            <li>Python & PySpark</li>
+            <li>Snowflake, SQL, MongoDB</li>
+            <li>Data Engineering & Pipelines</li>
+            <li>Machine Learning & AI Automation</li>
+            <li>Streamlit, Flask, REST API Development</li>
+            <li>Cloud Platforms (AWS, Azure)</li>
+        </ul>
+    </section>
+
+    <section class="certifications">
+        <h2>🏆 Certifications</h2>
+        <ul>
+            <li>AI Agents Fundamentals</li>
+            <li>AWS Certified Cloud Practitioner</li>
+            <li>BigID Master Security BizUser</li>
+            <li>Salesforce Platform Developer</li>
+            <li>Collibra Solution Architect Certification</li>
+            <li>Alteryx Foundational Micro-Credential</li>
+        </ul>
+    </section>
+
+    <section class="projects">
+        <h2>🚀 Featured Work / Projects</h2>
+        <ul>
+            <li>🔹 AI-driven Data Profiling, Classification & Quality Assessment</li>
+            <li>🔹 Local LLM-powered Data Insights & Analytics</li>
+            <li>🔹 NLP-based Analysis for Structured & Unstructured Data</li>
+            <li>🔹 End-to-End Real-Time Data Pipeline with Airflow & S3</li>
+            <li>🔹 Streamlit Apps for Data Analytics & Visualization</li>
+            <li>🔹 MongoDB + Python Automation for Data Validation</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>Connect with me:</p>
+        <a href="https://www.linkedin.com/in/sanjay-sreenivas/" target="_blank" class="footer-link">LinkedIn</a>
+        <a href="mailto:sanjaysreenivas7@gmail.com" class="footer-link">Email</a>
+        <a href="https://github.com/sanjaydevelopment" target="_blank" class="footer-link">GitHub</a>
+    </footer>
+</div>
+
+<script>
+    // Scroll fade-in
+    const sections = document.querySelectorAll("section");
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                entry.target.classList.add("active");
+                observer.unobserve(entry.target);
+            }
+        });
+    }, {threshold:0.2});
+    sections.forEach(sec => observer.observe(sec));
+
+    // Particle Network Background
+    const canvas = document.getElementById('particle-canvas');
+    const ctx = canvas.getContext('2d');
+    let width = canvas.width = window.innerWidth;
+    let height = canvas.height = window.innerHeight;
+
+    const particles = [];
+    const particleCount = 80;
+    const maxDist = 120;
+
+    class Particle {
+        constructor(){
+            this.x = Math.random()*width;
+            this.y = Math.random()*height;
+            this.vx = (Math.random()-0.5)*0.5;
+            this.vy = (Math.random()-0.5)*0.5;
+            this.radius = 2 + Math.random()*2;
+        }
+        move(){
+            this.x += this.vx;
+            this.y += this.vy;
+            if(this.x<0||this.x>width) this.vx*=-1;
+            if(this.y<0||this.y>height) this.vy*=-1;
+        }
+        draw(){
+            ctx.beginPath();
+            ctx.arc(this.x,this.y,this.radius,0,Math.PI*2);
+            ctx.fillStyle="#3498db";
+            ctx.fill();
+        }
+    }
+
+    function initParticles(){
+        for(let i=0;i<particleCount;i++){
+            particles.push(new Particle());
+        }
+    }
+
+    function connectParticles(){
+        for(let i=0;i<particles.length;i++){
+            for(let j=i+1;j<particles.length;j++){
+                let dx = particles[i].x - particles[j].x;
+                let dy = particles[i].y - particles[j].y;
+                let dist = Math.sqrt(dx*dx + dy*dy);
+                if(dist < maxDist){
+                    ctx.beginPath();
+                    ctx.strokeStyle = 'rgba(52,152,219,'+(1-dist/maxDist)+')';
+                    ctx.lineWidth=1;
+                    ctx.moveTo(particles[i].x,particles[i].y);
+                    ctx.lineTo(particles[j].x,particles[j].y);
+                    ctx.stroke();
+                }
+            }
+        }
+    }
+
+    function animate(){
+        ctx.clearRect(0,0,width,height);
+        particles.forEach(p=>{p.move(); p.draw();});
+        connectParticles();
+        requestAnimationFrame(animate);
+    }
+
+    window.addEventListener('resize',()=>{ width=canvas.width=window.innerWidth; height=canvas.height=window.innerHeight; });
+    initParticles();
+    animate();
+</script>
+
 </body>
 </html>
