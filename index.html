@@ -1,19 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>My Portfolio</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanjay | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body style="font-family: Arial;">
-  <h1>Hi, I'm Sanjay 👋</h1>
-  <p>Data Engineering | AI | Cloud</p>
-  
-  <h2>Projects</h2>
-  <ul>
-    <li>Project 1 - Description</li>
-    <li>Project 2 - Description</li>
-  </ul>
+<body>
 
-  <h2>Contact</h2>
-  <p>Email: your-email@example.com</p>
+  <!-- Header / Navbar -->
+  <header>
+    <h2 class="logo">Sanjay</h2>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h1>Hi, I'm <span class="highlight">Sanjay</span> 👋</h1>
+    <p>Data Engineering | AI | Cloud | Automation</p>
+  </section>
+
+  <!-- About Section -->
+  <section id="about" class="container">
+    <h2>About Me</h2>
+    <p>
+      I am a data engineer passionate about building real-time pipelines,
+      data quality frameworks, and intelligent automation solutions.
+      I enjoy solving practical problems using Python, Cloud, and AI tools.
+    </p>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects" class="container">
+    <h2>Projects</h2>
+    <div class="grid">
+      <div class="card">
+        <h3>Slack → Salesforce Automation</h3>
+        <p>Integrated Slack slash commands with Salesforce Apex to create tasks dynamically.</p>
+      </div>
+      <div class="card">
+        <h3>Data Quality Dashboard</h3>
+        <p>Streamlit app that profiles CSV uploads and shows data quality heatmaps.</p>
+      </div>
+      <div class="card">
+        <h3>MongoDB → S3 → Iceberg Pipeline</h3>
+        <p>Real-time data pipeline using Airflow, PySpark and Iceberg table format.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="container">
+    <h2>Contact</h2>
+    <p>Email: <a href="mailto:sanjay@example.com">sanjay@example.com</a></p>
+    <p>GitHub: <a href="https://github.com/sanjaydevelopment" target="_blank">github.com/sanjaydevelopment</a></p>
+    <p>LinkedIn: <a href="https://linkedin.com/in/YOUR-LINK" target="_blank">linkedin.com/in/YOUR-LINK</a></p>
+  </section>
+
+  <footer>
+    <p>© 2025 Sanjay — Built with ❤️</p>
+  </footer>
+
 </body>
 </html>
