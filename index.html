@@ -7,26 +7,57 @@
     <style>
         body {
             margin: 0;
-            font-family: Arial, sans-serif;
-            color: white;
+            font-family: 'Courier New', monospace;
+            color: #0f0;
             text-align: center;
             overflow-x: hidden;
             background: #000;
+            position: relative;
         }
 
-        #matrix {
+        /* Static Matrix-inspired background */
+        body::before {
+            content: '';
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
+            background-image: 
+                linear-gradient(transparent 0%, rgba(0,255,0,0.03) 1%),
+                repeating-linear-gradient(
+                    0deg,
+                    transparent,
+                    transparent 2px,
+                    rgba(0,255,0,0.02) 2px,
+                    rgba(0,255,0,0.02) 4px
+                );
             z-index: -1;
-            opacity: 0.4;
+            opacity: 0.3;
+        }
+
+        body::after {
+            content: '01{}[]<>;/=*def data: insights = pipeline();';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            font-size: 12px;
+            color: rgba(0,255,0,0.1);
+            z-index: -1;
+            white-space: pre;
+            line-height: 1.2;
+            animation: scrollDown 20s linear infinite;
+        }
+
+        @keyframes scrollDown {
+            0% { transform: translateY(100vh); }
+            100% { transform: translateY(-100%); }
         }
 
         .profile-container {
             margin-top: 40px;
-            transition: transform 0.3s ease;
         }
 
         .profile-photo {
@@ -46,80 +77,54 @@
         h1 {
             font-size: 36px;
             margin-top: 15px;
-            opacity: 0;
-            animation: fadeIn 1s ease forwards;
         }
 
         .highlight {
             color: #0f0;
+            text-shadow: 0 0 5px #0f0;
         }
 
         .tagline {
             font-size: 18px;
-            opacity: 0;
-            animation: fadeIn 1s ease 0.5s forwards;
+            margin-bottom: 40px;
         }
 
         section {
             margin: 40px auto;
             max-width: 700px;
             padding: 20px;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
             border-radius: 12px;
-            border: 1px solid rgba(0, 255, 0, 0.2);
-            backdrop-filter: blur(6px);
+            border: 1px solid rgba(0, 255, 0, 0.3);
+            text-align: left;
         }
 
-        .reveal {
-            opacity: 0;
-            transform: translateY(30px);
-            transition: opacity 0.6s ease, transform 0.6s ease;
+        section h2 {
+            text-align: center;
+            color: #0f0;
         }
 
-        .reveal.show {
-            opacity: 1;
-            transform: translateY(0);
+        ul {
+            list-style: none;
+            padding: 0;
         }
 
-        .skill-item, .cert-item {
-            opacity: 0;
-            transform: translateX(-20px);
-            transition: opacity 0.5s ease, transform 0.5s ease;
+        li {
+            margin: 10px 0;
+            padding: 8px;
+            background: rgba(0, 255, 0, 0.05);
+            border-left: 3px solid #0f0;
+            transition: background 0.3s ease;
         }
 
-        .skill-item.show, .cert-item.show {
-            opacity: 1;
-            transform: translateX(0);
+        li:hover {
+            background: rgba(0, 255, 0, 0.1);
         }
-
-        .skill-item:nth-child(1), .cert-item:nth-child(1) { transition-delay: 0.1s; }
-        .skill-item:nth-child(2), .cert-item:nth-child(2) { transition-delay: 0.2s; }
-        .skill-item:nth-child(3), .cert-item:nth-child(3) { transition-delay: 0.3s; }
-        .skill-item:nth-child(4), .cert-item:nth-child(4) { transition-delay: 0.4s; }
-        .skill-item:nth-child(5), .cert-item:nth-child(5) { transition-delay: 0.5s; }
-        .skill-item:nth-child(6), .cert-item:nth-child(6) { transition-delay: 0.6s; }
-
-        .project-item {
-            opacity: 0;
-            transform: scale(0.9);
-            transition: opacity 0.5s ease, transform 0.5s ease;
-        }
-
-        .project-item.show {
-            opacity: 1;
-            transform: scale(1);
-        }
-
-        .project-item:nth-child(1) { transition-delay: 0.1s; }
-        .project-item:nth-child(2) { transition-delay: 0.2s; }
-        .project-item:nth-child(3) { transition-delay: 0.3s; }
-        .project-item:nth-child(4) { transition-delay: 0.4s; }
 
         footer {
             margin-top: 60px;
             padding: 20px;
             font-size: 16px;
-            opacity: 0.9;
         }
 
         .footer-link {
@@ -134,43 +139,28 @@
             transform: translateY(-3px);
         }
 
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        .tagline {
-            display: inline-block;
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 3px solid #0f0;
-            animation: typing 3s steps(40, end) forwards, blink 0.75s step-end infinite;
-        }
-
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        @keyframes blink {
-            from, to { border-color: transparent; }
-            50% { border-color: #0f0; }
+        /* Canvas for Matrix effect (optional, will be enabled if JS works) */
+        #matrix {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.4;
+            display: none; /* Hidden until JS confirms */
         }
     </style>
 </head>
 
 <body>
-    <canvas id="matrix"></canvas>
+    <div class="profile-container">
+        <img src="profile.jpg" alt="Sanjay Sreenivas" class="profile-photo" onerror="this.src='https://via.placeholder.com/150x150/000/0f0?text=S'; this.onerror=null;">
+    </div>
+    <h1>Hello, I'm <span class="highlight">Sanjay Sreenivas</span></h1>
+    <p class="tagline">Data Engineer | AI & Machine Learning | Cloud & Big Data</p>
 
-    <header>
-        <div class="profile-container reveal">
-            <img src="profile.jpg" alt="Sanjay Sreenivas" class="profile-photo" onerror="this.src='https://via.placeholder.com/150?text=Sanjay'; this.onerror=null;">
-        </div>
-        <h1>Hello, I'm <span class="highlight">Sanjay Sreenivas</span></h1>
-        <p class="tagline" id="tagline">Data Engineer | AI & Machine Learning | Cloud & Big Data</p>
-    </header>
-
-    <section class="about reveal">
+    <section class="about">
         <h2>👨‍💻 About Me</h2>
         <p>
             Passionate Data Engineer experienced in AI, Machine Learning, Big Data, Cloud 
@@ -180,41 +170,41 @@
         </p>
     </section>
 
-    <section class="skills reveal">
+    <section class="skills">
         <h2>⚙️ Skills</h2>
         <ul>
-            <li class="skill-item reveal">Python & PySpark</li>
-            <li class="skill-item reveal">Snowflake, SQL, MongoDB</li>
-            <li class="skill-item reveal">Data Engineering & Pipelines</li>
-            <li class="skill-item reveal">Machine Learning & AI Automation</li>
-            <li class="skill-item reveal">Streamlit, Flask, REST API Development</li>
-            <li class="skill-item reveal">Cloud Platforms (AWS, Azure)</li>
+            <li>Python & PySpark</li>
+            <li>Snowflake, SQL, MongoDB</li>
+            <li>Data Engineering & Pipelines</li>
+            <li>Machine Learning & AI Automation</li>
+            <li>Streamlit, Flask, REST API Development</li>
+            <li>Cloud Platforms (AWS, Azure)</li>
         </ul>
     </section>
 
-    <section class="certifications reveal">
+    <section class="certifications">
         <h2>🏆 Certifications</h2>
         <ul>
-            <li class="cert-item reveal">AI Agents Fundamentals</li>
-            <li class="cert-item reveal">AWS Certified Cloud Practitioner</li>
-            <li class="cert-item reveal">BigID Master Security BizUser</li>
-            <li class="cert-item reveal">Salesforce Platform Developer</li>
-            <li class="cert-item reveal">Collibra Solution Architect Certification</li>
-            <li class="cert-item reveal">Alteryx Foundational Micro-Credential</li>
+            <li>AI Agents Fundamentals</li>
+            <li>AWS Certified Cloud Practitioner</li>
+            <li>BigID Master Security BizUser</li>
+            <li>Salesforce Platform Developer</li>
+            <li>Collibra Solution Architect Certification</li>
+            <li>Alteryx Foundational Micro-Credential</li>
         </ul>
     </section>
 
-    <section class="projects reveal">
+    <section class="projects">
         <h2>🚀 Featured Work / Projects</h2>
         <ul>
-            <li class="project-item reveal">🔹 AI-driven Data Classification Tool</li>
-            <li class="project-item reveal">🔹 End-to-End Real-Time Data Pipeline with Airflow & S3</li>
-            <li class="project-item reveal">🔹 Streamlit Apps for Data Analytics & Visualization</li>
-            <li class="project-item reveal">🔹 MongoDB + Python automation for data validation</li>
+            <li>🔹 AI-driven Data Classification Tool</li>
+            <li>🔹 End-to-End Real-Time Data Pipeline with Airflow & S3</li>
+            <li>🔹 Streamlit Apps for Data Analytics & Visualization</li>
+            <li>🔹 MongoDB + Python automation for data validation</li>
         </ul>
     </section>
 
-    <footer class="reveal">
+    <footer>
         <p>Connect with me:</p>
         <a href="https://www.linkedin.com/in/sanjay-sreenivas/" target="_blank" class="footer-link">LinkedIn</a>
         <span> | </span>
@@ -222,6 +212,8 @@
         <span> | </span>
         <a href="https://github.com/sanjaydevelopment" target="_blank" class="footer-link">GitHub</a>
     </footer>
+
+    <canvas id="matrix"></canvas>
 
     <script>
         console.log('Script started at', new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }));
@@ -232,64 +224,47 @@
             console.error('Canvas element not found!');
         } else {
             console.log('Canvas found, initializing...');
-        }
-        const ctx = canvas.getContext('2d');
-        if (!ctx) {
-            console.error('Canvas context failed to initialize!');
-        } else {
-            console.log('Canvas context initialized.');
-        }
-
-        function resizeCanvas() {
-            canvas.width = window.innerWidth;
-            canvas.height = window.innerHeight;
-            console.log('Canvas resized to', canvas.width, 'x', canvas.height);
-        }
-        resizeCanvas();
-        window.addEventListener('resize', resizeCanvas);
-
-        const chars = '01{}$[]<>/;:=+-*abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        const fontSize = 14;
-        const columns = canvas.width / fontSize;
-        const drops = Array(columns).fill(1); // Initialize with array of 1s
-
-        function draw() {
-            if (!ctx) return; // Safety check
-            ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-            ctx.fillStyle = '#0F0';
-            ctx.font = fontSize + 'px monospace';
-
-            drops.forEach((drop, i) => {
-                const text = chars.charAt(Math.floor(Math.random() * chars.length));
-                ctx.fillText(text, i * fontSize, drop * fontSize);
-
-                if (drop * fontSize > canvas.height && Math.random() > 0.975) {
-                    drops[i] = 0;
+            canvas.style.display = 'block'; // Enable canvas
+            const ctx = canvas.getContext('2d');
+            if (!ctx) {
+                console.error('Canvas context failed to initialize!');
+            } else {
+                console.log('Canvas context initialized.');
+                function resizeCanvas() {
+                    canvas.width = window.innerWidth;
+                    canvas.height = window.innerHeight;
+                    console.log('Canvas resized to', canvas.width, 'x', canvas.height);
                 }
-                drops[i]++;
-            });
-        }
-        setInterval(draw, 33);
+                resizeCanvas();
+                window.addEventListener('resize', resizeCanvas);
 
-        // Scroll reveal
-        const reveals = document.querySelectorAll('.reveal, .skill-item, .project-item, .cert-item');
-        console.log('Found', reveals.length, 'reveal elements');
+                const chars = '01{}$[]<>/;:=+-*abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+                const fontSize = 14;
+                const columns = canvas.width / fontSize;
+                const drops = Array(columns).fill(1);
 
-        function revealOnScroll() {
-            reveals.forEach((el) => {
-                const rect = el.getBoundingClientRect();
-                const windowHeight = window.innerHeight;
-                if (rect.top <= windowHeight - 50) {
-                    el.classList.add('show');
+                function draw() {
+                    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+                    ctx.fillStyle = '#0F0';
+                    ctx.font = fontSize + 'px monospace';
+
+                    drops.forEach((drop, i) => {
+                        const text = chars.charAt(Math.floor(Math.random() * chars.length));
+                        ctx.fillText(text, i * fontSize, drop * fontSize);
+
+                        if (drop * fontSize > canvas.height && Math.random() > 0.975) {
+                            drops[i] = 0;
+                        }
+                        drops[i]++;
+                    });
                 }
-            });
+                setInterval(draw, 33); // ~30 FPS
+            }
         }
 
-        window.addEventListener('scroll', revealOnScroll);
-        revealOnScroll();
-        console.log('Initial reveal triggered.');
+        console.log('Script execution completed.');
     </script>
 </body>
 </html>
