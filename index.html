@@ -1,74 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sanjay Sreenivas | Portfolio</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="script.js" defer></script>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sanjay Sreenivas - Portfolio</title>
+    <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
+    <div class="background"></div>
 
-  <header>
-    <h2 class="logo">Sanjay Sreenivas</h2>
-    <nav>
-      <a href="#about">About</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    <header>
+        <div class="profile-container">
+            <!-- Your image will work after you upload profile.jpg -->
+            <img src="profile.jpg" alt="Sanjay" class="profile-photo">
+        </div>
+        <h1>Hello, I'm <span class="highlight">Sanjay Sreenivas</span></h1>
+        <p class="tagline">Data Engineer | AI & Machine Learning | Cloud & Big Data</p>
+    </header>
 
-  <section class="hero">
-    <h1 class="reveal">Hi, I'm <span class="highlight">Sanjay</span> 👋</h1>
-    <p class="reveal delay">
-      Data Engineering • AI • Cloud • Automation
-    </p>
+    <section class="about">
+        <h2>👨‍💻 About Me</h2>
+        <p>
+            Passionate Data Engineer experienced in AI, Machine Learning, Big Data, Cloud 
+            platforms and building smart automations. I love converting raw data into meaningful 
+            insights and building scalable end-to-end systems. I enjoy creating solutions that 
+            bridge business needs and technology.
+        </p>
+    </section>
 
-    <div class="buttons reveal delay2">
-      <a href="https://github.com/sanjaydevelopment" target="_blank" class="btn">GitHub</a>
-      <a href="https://www.linkedin.com/in/sanjay-sreenivas/" target="_blank" class="btn-outline">LinkedIn</a>
-    </div>
-  </section>
+    <section class="skills">
+        <h2>⚙️ Skills</h2>
+        <ul>
+            <li>Python & PySpark</li>
+            <li>Snowflake, SQL, MongoDB</li>
+            <li>Data Engineering & Pipelines</li>
+            <li>Machine Learning & AI Automation</li>
+            <li>Streamlit, Flask, REST API Development</li>
+            <li>Cloud Platforms (AWS, GCP)</li>
+        </ul>
+    </section>
 
-  <section id="about" class="container reveal">
-    <h2>About Me</h2>
-    <p>
-      I specialize in building scalable data pipelines, real-time processing systems,
-      and intelligent automation workflows. I enjoy solving real-world data problems
-      and working with technologies like Python, Spark, Airflow, MongoDB, Snowflake and Cloud services.
-    </p>
-  </section>
+    <section class="projects">
+        <h2>🚀 Featured Work / Projects</h2>
+        <ul>
+            <li>🔹 AI-driven Data Classification Tool</li>
+            <li>🔹 End-to-End Real-Time Data Pipeline with Airflow & S3</li>
+            <li>🔹 Streamlit Apps for Data Analytics & Visualization</li>
+            <li>🔹 MongoDB + Python automation for data validation</li>
+        </ul>
+    </section>
 
-  <section id="projects" class="container reveal">
-    <h2>Projects</h2>
-    <div class="grid">
-
-      <div class="card">
-        <h3>Slack → Salesforce Automation</h3>
-        <p>Slash commands trigger Apex logic to create records directly from Slack.</p>
-      </div>
-
-      <div class="card">
-        <h3>Data Quality & Profiling Dashboard</h3>
-        <p>Streamlit app to profile data, detect PII, generate summaries & heatmaps.</p>
-      </div>
-
-      <div class="card">
-        <h3>Real-Time ETL Pipeline</h3>
-        <p>MongoDB → S3 → Iceberg ingestion pipeline with Airflow + PySpark.</p>
-      </div>
-
-    </div>
-  </section>
-
-  <section id="contact" class="container reveal">
-    <h2>Contact</h2>
-    <p>Email: <a href="mailto:sanjay92062@gmail.com">sanjay92062@gmail.com</a></p>
-  </section>
-
-  <footer>
-    <p>© 2025 Sanjay Sreenivas — Built with ❤️</p>
-  </footer>
-
+    <footer>
+        <p>Connect with me:</p>
+        <a href="https://www.linkedin.com/in/sanjay-sreenivas/" target="_blank">LinkedIn</a>
+        <span> | </span>
+        <a href="mailto:sanjaysreenivas7@gmail.com">Email</a>
+        <span> | </span>
+        <a href="https://github.com/sanjaydevelopment" target="_blank">GitHub</a>
+    </footer>
 </body>
 </html>
