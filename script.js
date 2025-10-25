@@ -1,5 +1,5 @@
-// Select all elements with reveal, skill-item, and project-item classes
-const reveals = document.querySelectorAll('.reveal, .skill-item, .project-item');
+// Select all elements with reveal, skill-item, project-item, and cert-item classes
+const reveals = document.querySelectorAll('.reveal, .skill-item, .project-item, .cert-item');
 
 function revealOnScroll() {
   reveals.forEach((el) => {
