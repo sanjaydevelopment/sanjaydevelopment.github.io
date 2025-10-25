@@ -11,15 +11,14 @@
     <div class="background"></div>
 
     <header>
-        <div class="profile-container">
-            <!-- Your image will work after you upload profile.jpg -->
+        <div class="profile-container reveal">
             <img src="profile.jpg" alt="Sanjay" class="profile-photo">
         </div>
         <h1>Hello, I'm <span class="highlight">Sanjay Sreenivas</span></h1>
-        <p class="tagline">Data Engineer | AI & Machine Learning | Cloud & Big Data</p>
+        <p class="tagline" id="tagline">Data Engineer | AI & Machine Learning | Cloud & Big Data</p>
     </header>
 
-    <section class="about">
+    <section class="about reveal">
         <h2>👨‍💻 About Me</h2>
         <p>
             Passionate Data Engineer experienced in AI, Machine Learning, Big Data, Cloud 
@@ -29,35 +28,37 @@
         </p>
     </section>
 
-    <section class="skills">
+    <section class="skills reveal">
         <h2>⚙️ Skills</h2>
         <ul>
-            <li>Python & PySpark</li>
-            <li>Snowflake, SQL, MongoDB</li>
-            <li>Data Engineering & Pipelines</li>
-            <li>Machine Learning & AI Automation</li>
-            <li>Streamlit, Flask, REST API Development</li>
-            <li>Cloud Platforms (AWS, GCP)</li>
+            <li class="skill-item reveal">Python & PySpark</li>
+            <li class="skill-item reveal">Snowflake, SQL, MongoDB</li>
+            <li class="skill-item reveal">Data Engineering & Pipelines</li>
+            <li class="skill-item reveal">Machine Learning & AI Automation</li>
+            <li class="skill-item reveal">Streamlit, Flask, REST API Development</li>
+            <li class="skill-item reveal">Cloud Platforms (AWS, GCP)</li>
         </ul>
     </section>
 
-    <section class="projects">
+    <section class="projects reveal">
         <h2>🚀 Featured Work / Projects</h2>
         <ul>
-            <li>🔹 AI-driven Data Classification Tool</li>
-            <li>🔹 End-to-End Real-Time Data Pipeline with Airflow & S3</li>
-            <li>🔹 Streamlit Apps for Data Analytics & Visualization</li>
-            <li>🔹 MongoDB + Python automation for data validation</li>
+            <li class="project-item reveal">🔹 AI-driven Data Classification Tool</li>
+            <li class="project-item reveal">🔹 End-to-End Real-Time Data Pipeline with Airflow & S3</li>
+            <li class="project-item reveal">🔹 Streamlit Apps for Data Analytics & Visualization</li>
+            <li class="project-item reveal">🔹 MongoDB + Python automation for data validation</li>
         </ul>
     </section>
 
-    <footer>
+    <footer class="reveal">
         <p>Connect with me:</p>
-        <a href="https://www.linkedin.com/in/sanjay-sreenivas/" target="_blank">LinkedIn</a>
+        <a href="https://www.linkedin.com/in/sanjay-sreenivas/" target="_blank" class="footer-link">LinkedIn</a>
         <span> | </span>
-        <a href="mailto:sanjaysreenivas7@gmail.com">Email</a>
+        <a href="mailto:sanjaysreenivas7@gmail.com" class="footer-link">Email</a>
         <span> | </span>
-        <a href="https://github.com/sanjaydevelopment" target="_blank">GitHub</a>
+        <a href="https://github.com/sanjaydevelopment" target="_blank" class="footer-link">GitHub</a>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
