@@ -6,7 +6,7 @@ body {
   overflow-x: hidden;
 }
 
-/* Background gradient animation */
+/* Background gradient with subtle code pattern overlay */
 .background {
   position: fixed;
   width: 100%;
@@ -14,6 +14,19 @@ body {
   background: linear-gradient(120deg, #001f3f, #0074D9, #2ECC40, #001f3f);
   background-size: 600% 600%;
   animation: gradientShift 15s ease infinite;
+  z-index: -1;
+}
+
+.background::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" opacity="0.1"><text x="10" y="20" font-family="monospace" font-size="12" fill="white">{ ... }</text><text x="50" y="60" font-family="monospace" font-size="12" fill="white">def code():</text><text x="20" y="100" font-family="monospace" font-size="12" fill="white">return "data"</text><text x="70" y="140" font-family="monospace" font-size="12" fill="white">[1, 2, 3]</text><text x="30" y="180" font-family="monospace" font-size="12" fill="white">import pandas</text></svg>');
+  background-repeat: repeat;
+  opacity: 0.1;
   z-index: -1;
 }
 
@@ -101,6 +114,25 @@ section {
 .skill-item:nth-child(4) { transition-delay: 0.4s; }
 .skill-item:nth-child(5) { transition-delay: 0.5s; }
 .skill-item:nth-child(6) { transition-delay: 0.6s; }
+
+/* Certification items staggered animation */
+.cert-item {
+  opacity: 0;
+  transform: translateX(-20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.cert-item.show {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.cert-item:nth-child(1) { transition-delay: 0.1s; }
+.cert-item:nth-child(2) { transition-delay: 0.2s; }
+.cert-item:nth-child(3) { transition-delay: 0.3s; }
+.cert-item:nth-child(4) { transition-delay: 0.4s; }
+.cert-item:nth-child(5) { transition-delay: 0.5s; }
+.cert-item:nth-child(6) { transition-delay: 0.6s; }
 
 /* Project items scale animation */
 .project-item {
