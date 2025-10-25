@@ -8,14 +8,25 @@
         body {
             margin: 0;
             font-family: 'Courier New', monospace;
-            color: #0f0;
+            color: #fff;
             text-align: center;
             overflow-x: hidden;
-            background: #000;
-            position: relative;
+            background: #2c3e50; /* Dark blue-gray for a modern tech look */
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px 0;
         }
 
-        /* Static Matrix-inspired background */
+        /* Main container for structured layout */
+        .container {
+            max-width: 900px;
+            width: 100%;
+            padding: 0 20px;
+        }
+
+        /* Coding-inspired background with grid and terminal overlay */
         body::before {
             content: '';
             position: fixed;
@@ -23,37 +34,26 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-image: 
-                linear-gradient(transparent 0%, rgba(0,255,0,0.03) 1%),
-                repeating-linear-gradient(
-                    0deg,
-                    transparent,
-                    transparent 2px,
-                    rgba(0,255,0,0.02) 2px,
-                    rgba(0,255,0,0.02) 4px
-                );
+            background: 
+                linear-gradient(rgba(44, 62, 80, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(44, 62, 80, 0.1) 1px, transparent 1px);
+            background-size: 30px 30px;
             z-index: -1;
             opacity: 0.3;
         }
 
         body::after {
-            content: '01{}[]<>;/=*def data: insights = pipeline();';
+            content: '>>> Data Engineer Portfolio\n# Running processData()...\n# Insights: [1, 2, 3, ...]\n# Status: Active';
             position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            font-size: 12px;
-            color: rgba(0,255,0,0.1);
+            top: 5%;
+            left: 5%;
+            font-size: 14px;
+            color: rgba(52, 152, 219, 0.1); /* Light blue for terminal text */
             z-index: -1;
-            white-space: pre;
-            line-height: 1.2;
-            animation: scrollDown 20s linear infinite;
-        }
-
-        @keyframes scrollDown {
-            0% { transform: translateY(100vh); }
-            100% { transform: translateY(-100%); }
+            white-space: pre-wrap;
+            line-height: 1.5;
+            text-align: left;
+            opacity: 0.3;
         }
 
         .profile-container {
@@ -64,207 +64,168 @@
             width: 150px;
             height: 150px;
             border-radius: 50%;
-            border: 4px solid #0f0;
+            border: 4px solid #3498db; /* Light blue border to match theme */
             object-fit: cover;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         .profile-photo:hover {
             transform: scale(1.1);
-            box-shadow: 0 0 20px rgba(0, 255, 0, 0.5);
+            box-shadow: 0 0 20px rgba(52, 152, 219, 0.5);
         }
 
         h1 {
-            font-size: 36px;
-            margin-top: 15px;
+            font-size: 40px;
+            margin-top: 20px;
+            color: #3498db; /* Light blue for header */
         }
 
         .highlight {
-            color: #0f0;
-            text-shadow: 0 0 5px #0f0;
+            color: #3498db;
+            text-shadow: 0 0 5px #3498db;
         }
 
         .tagline {
-            font-size: 18px;
+            font-size: 20px;
             margin-bottom: 40px;
+            color: #ecf0f1; /* Off-white for contrast */
         }
 
         section {
-            margin: 40px auto;
-            max-width: 700px;
-            padding: 20px;
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 12px;
-            border: 1px solid rgba(0, 255, 0, 0.3);
+            margin: 40px 0;
+            padding: 30px;
+            background: #34495e; /* Darker blue-gray for sections */
+            border: 1px solid #2c3e50;
+            border-radius: 10px;
             text-align: left;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
         }
 
         section h2 {
             text-align: center;
-            color: #0f0;
+            color: #3498db;
+            font-size: 28px;
         }
 
         ul {
             list-style: none;
             padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            justify-content: center;
         }
 
         li {
             margin: 10px 0;
-            padding: 8px;
-            background: rgba(0, 255, 0, 0.05);
-            border-left: 3px solid #0f0;
+            padding: 15px;
+            background: #3d566e; /* Slightly lighter section color */
+            border-left: 3px solid #3498db;
             transition: background 0.3s ease;
+            text-align: center;
         }
 
         li:hover {
-            background: rgba(0, 255, 0, 0.1);
+            background: #405d78;
         }
 
         footer {
             margin-top: 60px;
-            padding: 20px;
+            padding: 30px;
             font-size: 16px;
+            background: #34495e;
+            border-top: 1px solid #2c3e50;
         }
 
         .footer-link {
-            color: #0f0;
+            color: #3498db;
             text-decoration: none;
             font-weight: bold;
             transition: color 0.3s ease, transform 0.3s ease;
         }
 
         .footer-link:hover {
-            color: #00cc00;
+            color: #5dade2; /* Lighter blue on hover */
             transform: translateY(-3px);
         }
 
-        /* Canvas for Matrix effect (optional, will be enabled if JS works) */
-        #matrix {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            opacity: 0.4;
-            display: none; /* Hidden until JS confirms */
+        @media (max-width: 768px) {
+            .container { padding: 0 10px; }
+            h1 { font-size: 32px; }
+            .tagline { font-size: 16px; }
+            section h2 { font-size: 24px; }
+            section { padding: 20px; }
+            li { padding: 10px; }
+            footer { padding: 20px; }
         }
     </style>
 </head>
 
 <body>
-    <div class="profile-container">
-        <img src="profile.jpg" alt="Sanjay Sreenivas" class="profile-photo" onerror="this.src='https://via.placeholder.com/150x150/000/0f0?text=S'; this.onerror=null;">
+    <div class="container">
+        <div class="profile-container">
+            <img src="profile.jpg" alt="Sanjay Sreenivas" class="profile-photo" onerror="this.src='https://via.placeholder.com/150x150/2c3e50/3498db?text=S'; this.onerror=null;">
+        </div>
+        <h1>Hello, I'm <span class="highlight">Sanjay Sreenivas</span></h1>
+        <p class="tagline">Data Engineer | AI & Machine Learning | Cloud & Big Data</p>
+
+        <section class="about">
+            <h2>👨‍💻 About Me</h2>
+<p>
+    Passionate Data Engineer with expertise in AI, Machine Learning, Big Data, and Cloud Platforms. 
+    I specialize in building scalable end-to-end data pipelines, ensuring data quality, governance, 
+    and compliance with privacy regulations. I thrive on transforming raw data into actionable insights, 
+    designing intelligent systems, and creating solutions that seamlessly bridge business objectives 
+    and technology innovation. Committed to delivering reliable, secure, and high-value data solutions 
+    that empower organizations to make informed decisions.
+</p>
+
+        </section>
+
+        <section class="skills">
+            <h2>⚙️ Skills</h2>
+            <ul>
+                <li>Python & PySpark</li>
+                <li>Snowflake, SQL, MongoDB</li>
+                <li>Data Engineering & Pipelines</li>
+                <li>Machine Learning & AI Automation</li>
+                <li>Streamlit, Flask, REST API Development</li>
+                <li>Cloud Platforms (AWS, Azure)</li>
+            </ul>
+        </section>
+
+        <section class="certifications">
+            <h2>🏆 Certifications</h2>
+            <ul>
+                <li>AI Agents Fundamentals</li>
+                <li>AWS Certified Cloud Practitioner</li>
+                <li>BigID Master Security BizUser</li>
+                <li>Salesforce Platform Developer</li>
+                <li>Collibra Solution Architect Certification</li>
+                <li>Alteryx Foundational Micro-Credential</li>
+            </ul>
+        </section>
+
+        <section class="projects">
+            <h2>🚀 Featured Work / Projects</h2>
+            <ul>
+				<li>🔹 AI-driven Data Profiling,Classification & Quality Assessment</li>
+				<li>🔹 Local LLM-powered Data Insights & Analytics</li>
+                <li>🔹 NLP-based Analysis for Structured & Unstructured Data</li>
+                <li>🔹 End-to-End Real-Time Data Pipeline with Airflow & S3</li>
+                <li>🔹 Streamlit Apps for Data Analytics & Visualization</li>
+                <li>🔹 MongoDB + Python automation for data validation</li>
+            </ul>
+        </section>
+
+        <footer>
+            <p>Connect with me:</p>
+            <a href="https://www.linkedin.com/in/sanjay-sreenivas/" target="_blank" class="footer-link">LinkedIn</a>
+            <span> | </span>
+            <a href="mailto:sanjaysreenivas7@gmail.com" class="footer-link">Email</a>
+            <span> | </span>
+            <a href="https://github.com/sanjaydevelopment" target="_blank" class="footer-link">GitHub</a>
+        </footer>
     </div>
-    <h1>Hello, I'm <span class="highlight">Sanjay Sreenivas</span></h1>
-    <p class="tagline">Data Engineer | AI & Machine Learning | Cloud & Big Data</p>
-
-    <section class="about">
-        <h2>👨‍💻 About Me</h2>
-        <p>
-            Passionate Data Engineer experienced in AI, Machine Learning, Big Data, Cloud 
-            platforms and building smart automations. I love converting raw data into meaningful 
-            insights and building scalable end-to-end systems. I enjoy creating solutions that 
-            bridge business needs and technology.
-        </p>
-    </section>
-
-    <section class="skills">
-        <h2>⚙️ Skills</h2>
-        <ul>
-            <li>Python & PySpark</li>
-            <li>Snowflake, SQL, MongoDB</li>
-            <li>Data Engineering & Pipelines</li>
-            <li>Machine Learning & AI Automation</li>
-            <li>Streamlit, Flask, REST API Development</li>
-            <li>Cloud Platforms (AWS, Azure)</li>
-        </ul>
-    </section>
-
-    <section class="certifications">
-        <h2>🏆 Certifications</h2>
-        <ul>
-            <li>AI Agents Fundamentals</li>
-            <li>AWS Certified Cloud Practitioner</li>
-            <li>BigID Master Security BizUser</li>
-            <li>Salesforce Platform Developer</li>
-            <li>Collibra Solution Architect Certification</li>
-            <li>Alteryx Foundational Micro-Credential</li>
-        </ul>
-    </section>
-
-    <section class="projects">
-        <h2>🚀 Featured Work / Projects</h2>
-        <ul>
-            <li>🔹 AI-driven Data Classification Tool</li>
-            <li>🔹 End-to-End Real-Time Data Pipeline with Airflow & S3</li>
-            <li>🔹 Streamlit Apps for Data Analytics & Visualization</li>
-            <li>🔹 MongoDB + Python automation for data validation</li>
-        </ul>
-    </section>
-
-    <footer>
-        <p>Connect with me:</p>
-        <a href="https://www.linkedin.com/in/sanjay-sreenivas/" target="_blank" class="footer-link">LinkedIn</a>
-        <span> | </span>
-        <a href="mailto:sanjaysreenivas7@gmail.com" class="footer-link">Email</a>
-        <span> | </span>
-        <a href="https://github.com/sanjaydevelopment" target="_blank" class="footer-link">GitHub</a>
-    </footer>
-
-    <canvas id="matrix"></canvas>
-
-    <script>
-        console.log('Script started at', new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' }));
-
-        // Matrix Background Effect
-        const canvas = document.getElementById('matrix');
-        if (!canvas) {
-            console.error('Canvas element not found!');
-        } else {
-            console.log('Canvas found, initializing...');
-            canvas.style.display = 'block'; // Enable canvas
-            const ctx = canvas.getContext('2d');
-            if (!ctx) {
-                console.error('Canvas context failed to initialize!');
-            } else {
-                console.log('Canvas context initialized.');
-                function resizeCanvas() {
-                    canvas.width = window.innerWidth;
-                    canvas.height = window.innerHeight;
-                    console.log('Canvas resized to', canvas.width, 'x', canvas.height);
-                }
-                resizeCanvas();
-                window.addEventListener('resize', resizeCanvas);
-
-                const chars = '01{}$[]<>/;:=+-*abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-                const fontSize = 14;
-                const columns = canvas.width / fontSize;
-                const drops = Array(columns).fill(1);
-
-                function draw() {
-                    ctx.fillStyle = 'rgba(0, 0, 0, 0.05)';
-                    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-                    ctx.fillStyle = '#0F0';
-                    ctx.font = fontSize + 'px monospace';
-
-                    drops.forEach((drop, i) => {
-                        const text = chars.charAt(Math.floor(Math.random() * chars.length));
-                        ctx.fillText(text, i * fontSize, drop * fontSize);
-
-                        if (drop * fontSize > canvas.height && Math.random() > 0.975) {
-                            drops[i] = 0;
-                        }
-                        drops[i]++;
-                    });
-                }
-                setInterval(draw, 33); // ~30 FPS
-            }
-        }
-
-        console.log('Script execution completed.');
-    </script>
 </body>
 </html>
