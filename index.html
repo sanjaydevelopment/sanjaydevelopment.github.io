@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sanjay | Portfolio</title>
+  <title>Sanjay Sreenivas | Portfolio</title>
   <link rel="stylesheet" href="style.css" />
+  <script src="script.js" defer></script>
 </head>
 <body>
 
-  <!-- Header / Navbar -->
   <header>
-    <h2 class="logo">Sanjay</h2>
+    <h2 class="logo">Sanjay Sreenivas</h2>
     <nav>
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
@@ -18,51 +18,56 @@
     </nav>
   </header>
 
-  <!-- Hero Section -->
   <section class="hero">
-    <h1>Hi, I'm <span class="highlight">Sanjay</span> 👋</h1>
-    <p>Data Engineering | AI | Cloud | Automation</p>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="container">
-    <h2>About Me</h2>
-    <p>
-      I am a data engineer passionate about building real-time pipelines,
-      data quality frameworks, and intelligent automation solutions.
-      I enjoy solving practical problems using Python, Cloud, and AI tools.
+    <h1 class="reveal">Hi, I'm <span class="highlight">Sanjay</span> 👋</h1>
+    <p class="reveal delay">
+      Data Engineering • AI • Cloud • Automation
     </p>
-  </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="container">
-    <h2>Projects</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Slack → Salesforce Automation</h3>
-        <p>Integrated Slack slash commands with Salesforce Apex to create tasks dynamically.</p>
-      </div>
-      <div class="card">
-        <h3>Data Quality Dashboard</h3>
-        <p>Streamlit app that profiles CSV uploads and shows data quality heatmaps.</p>
-      </div>
-      <div class="card">
-        <h3>MongoDB → S3 → Iceberg Pipeline</h3>
-        <p>Real-time data pipeline using Airflow, PySpark and Iceberg table format.</p>
-      </div>
+    <div class="buttons reveal delay2">
+      <a href="https://github.com/sanjaydevelopment" target="_blank" class="btn">GitHub</a>
+      <a href="https://www.linkedin.com/in/sanjay-sreenivas/" target="_blank" class="btn-outline">LinkedIn</a>
     </div>
   </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="container">
+  <section id="about" class="container reveal">
+    <h2>About Me</h2>
+    <p>
+      I specialize in building scalable data pipelines, real-time processing systems,
+      and intelligent automation workflows. I enjoy solving real-world data problems
+      and working with technologies like Python, Spark, Airflow, MongoDB, Snowflake and Cloud services.
+    </p>
+  </section>
+
+  <section id="projects" class="container reveal">
+    <h2>Projects</h2>
+    <div class="grid">
+
+      <div class="card">
+        <h3>Slack → Salesforce Automation</h3>
+        <p>Slash commands trigger Apex logic to create records directly from Slack.</p>
+      </div>
+
+      <div class="card">
+        <h3>Data Quality & Profiling Dashboard</h3>
+        <p>Streamlit app to profile data, detect PII, generate summaries & heatmaps.</p>
+      </div>
+
+      <div class="card">
+        <h3>Real-Time ETL Pipeline</h3>
+        <p>MongoDB → S3 → Iceberg ingestion pipeline with Airflow + PySpark.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <section id="contact" class="container reveal">
     <h2>Contact</h2>
-    <p>Email: <a href="mailto:sanjay@example.com">sanjay@example.com</a></p>
-    <p>GitHub: <a href="https://github.com/sanjaydevelopment" target="_blank">github.com/sanjaydevelopment</a></p>
-    <p>LinkedIn: <a href="https://linkedin.com/in/YOUR-LINK" target="_blank">linkedin.com/in/YOUR-LINK</a></p>
+    <p>Email: <a href="mailto:sanjaysreenivas1999@gmail.com">sanjaysreenivas1999@gmail.com</a></p>
   </section>
 
   <footer>
-    <p>© 2025 Sanjay — Built with ❤️</p>
+    <p>© 2025 Sanjay Sreenivas — Built with ❤️</p>
   </footer>
 
 </body>
