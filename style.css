@@ -4,36 +4,18 @@ body {
   color: white;
   text-align: center;
   overflow-x: hidden;
+  background: #000; /* Black background for Matrix effect */
 }
 
-/* Background gradient with subtle code pattern overlay */
-.background {
+/* Matrix canvas */
+#matrix {
   position: fixed;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(120deg, #001f3f, #0074D9, #2ECC40, #001f3f);
-  background-size: 600% 600%;
-  animation: gradientShift 15s ease infinite;
-  z-index: -1;
-}
-
-.background::after {
-  content: '';
-  position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" opacity="0.1"><text x="10" y="20" font-family="monospace" font-size="12" fill="white">{ ... }</text><text x="50" y="60" font-family="monospace" font-size="12" fill="white">def code():</text><text x="20" y="100" font-family="monospace" font-size="12" fill="white">return "data"</text><text x="70" y="140" font-family="monospace" font-size="12" fill="white">[1, 2, 3]</text><text x="30" y="180" font-family="monospace" font-size="12" fill="white">import pandas</text></svg>');
-  background-repeat: repeat;
-  opacity: 0.1;
   z-index: -1;
-}
-
-@keyframes gradientShift {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+  opacity: 0.3; /* Subtle opacity to keep content readable */
 }
 
 /* Profile Photo */
@@ -46,14 +28,14 @@ body {
   width: 150px;
   height: 150px;
   border-radius: 50%;
-  border: 4px solid white;
+  border: 4px solid #0f0; /* Green border for Matrix theme */
   object-fit: cover;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .profile-photo:hover {
   transform: scale(1.1);
-  box-shadow: 0 0 20px rgba(255, 234, 0, 0.5);
+  box-shadow: 0 0 20px rgba(0, 255, 0, 0.5); /* Green glow */
 }
 
 /* Header */
@@ -65,7 +47,7 @@ h1 {
 }
 
 .highlight {
-  color: #ffea00;
+  color: #0f0; /* Matrix green for highlight */
 }
 
 .tagline {
@@ -79,8 +61,9 @@ section {
   margin: 40px auto;
   max-width: 700px;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(0, 0, 0, 0.5); /* Semi-transparent black for contrast */
   border-radius: 12px;
+  border: 1px solid rgba(0, 255, 0, 0.2); /* Subtle green border */
   backdrop-filter: blur(6px);
 }
 
@@ -160,14 +143,14 @@ footer {
 }
 
 .footer-link {
-  color: #ffea00;
+  color: #0f0; /* Matrix green for links */
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .footer-link:hover {
-  color: #2ECC40;
+  color: #00cc00; /* Brighter green on hover */
   transform: translateY(-3px);
 }
 
@@ -182,7 +165,7 @@ footer {
   display: inline-block;
   white-space: nowrap;
   overflow: hidden;
-  border-right: 3px solid #ffea00;
+  border-right: 3px solid #0f0; /* Green cursor for Matrix theme */
   animation: typing 3s steps(40, end) forwards, blink 0.75s step-end infinite;
 }
 
@@ -193,5 +176,5 @@ footer {
 
 @keyframes blink {
   from, to { border-color: transparent; }
-  50% { border-color: #ffea00; }
+  50% { border-color: #0f0; }
 }
